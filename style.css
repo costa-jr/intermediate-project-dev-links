@@ -40,7 +40,8 @@ body {
 /* ↑ SEQUENCIA: background: color image repeat position/size */
 
 #container {
-  width: 360px;
+  width: 100%;
+  max-width: 588px;
   margin: 56px auto 0px; /* ← margin: auto; IS ONLY POSSIBLE IF THE ELEMENT IS A BLOCK ELEMENT*/
   padding: 0 24px; /* ← PADDING APLICADO DEPOIS DE ANALIZAR O DESIGN NO FIGMA */
 }
