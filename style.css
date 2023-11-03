@@ -1,0 +1,182 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* DEFINIÇÃO DE VARIÁVEIS 
+  → SELECIONANDO O ELEMENTO root (RAIZ) POR PADRÃO
+  → CRIANDO UMA VARIÁVEL CSS COM NOME "root", DESSA FORMA, TUDO QUE LEVA ESSA VARIÁVEL var(--text-color); RECEBERÁ SUA CONFIGURAÇÃO
+  → O NOME DA VARIÁVEL --text-color É POR OPÇÃO MINHA */
+:root {
+  --text-color: white;
+  --bg-url: url(./assets/bg-mobile.jpg);
+  --stroke-color: rgba(255, 255, 255, 0.5);
+  --surface-color: rgba(255, 255, 255, 0.1);
+  --surface-color-hover: rgba(0, 0, 0, 0.02);
+  --highlight-color: rgba(255, 255, 255, 0.2);
+  --switch-bg-url: url(./assets/moon-stars.svg);
+}
+
+.light {
+  --text-color: black;
+  --bg-url: url(./assets/bg-mobile-light.jpg);
+  --stroke-color: rgba(0, 0, 0, 0.5);
+  --surface-color: rgba(0, 0, 0, 0.1);
+  --surface-color-hover: rgba(0, 0, 0, 0.02);
+  --highlight-color: rgba(0, 0, 0, 0.1);
+  --switch-bg-url: url(./assets/sun.svg);
+}
+
+body * {
+  font-family: "Inter", sans-serif;
+  color: var(--text-color);
+}
+
+body {
+  /* ↓ SHORTHAND P/ BACKGROUND */
+  background: var(--bg-url) no-repeat top center/cover;
+}
+/* ↑ SEQUENCIA: background: color image repeat position/size */
+
+#container {
+  width: 360px;
+  margin: 56px auto 0px; /* ← margin: auto; IS ONLY POSSIBLE IF THE ELEMENT IS A BLOCK ELEMENT*/
+  padding: 0 24px; /* ← PADDING APLICADO DEPOIS DE ANALIZAR O DESIGN NO FIGMA */
+}
+
+/* PROFILE */
+/* ↓ TO CENTER THE ELEMENTS INSIDE THE PARENT, SINCE IMG HAS display: inline; BY DEFAULT*/
+#profile {
+  text-align: center;
+  padding: 24px;
+}
+
+#profile img {
+  width: 112px;
+}
+
+#profile h1 {
+  margin-top: 16px;
+  font-size: 20px;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+#profile p {
+  line-height: 1.5;
+  font-weight: 400;
+  /* margin-top: 8px; */
+}
+
+/* BOTÃO TOGGLE */
+#switch {
+  position: relative;
+  width: 64px; /* ← MESMO TAMANHO DO SPAN PARA MANIPULAR O POSICIONAMENTO DO TOGGLE */
+
+  margin: 4px auto; /* APESAR DE TER PASSADO UMA LARGURA DE 64px O ELEMENTO div É UM ELEMENTO COM display: block; PADRÃO! */
+}
+
+#switch button {
+  height: 32px;
+  width: 32px;
+  background: white var(--switch-bg-url) no-repeat center;
+  border: 0;
+  border-radius: 50%;
+  /*background-image: url(./assets/moon-stars.svg);*/ /* PADRÃO É REPEAT, E TAMBÉM POSSO POR EM UMA LINHA COM O background: color url() no-repeat center */
+
+  position: absolute;
+  top: 50%;
+  left: 0;
+  z-index: 1;
+  transform: translateY(-50%);
+}
+
+.light #switch button {
+  right: 0;
+  left: initial;
+}
+
+#switch span {
+  display: block;
+  height: 24px;
+  width: 64px;
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 9999px;
+}
+
+/* LINKS */
+ul {
+  list-style: none;
+
+  display: flex; /* ← PADRÃO É ROW COLOCANDO OS ELEMENTOS UM AO LADO DO OUTRO
+  POR ESSE MOTIVO, DECLARO UM flex-direction: column; PARA POR OS ELEMENTOS UM ACIMA DO OUTRO COMO UMA COLUNA */
+  flex-direction: column;
+  gap: 16px;
+
+  padding: 24px 0;
+}
+
+ul li a {
+  /* display: block;
+  text-align: center; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 16px 24px;
+
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  border-radius: 8px;
+
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+
+  text-decoration: none;
+  font-weight: 500;
+
+  transition: background 0.2s;
+}
+
+/* ↓ PSEUDO-SELECTOR HOVER */
+ul li a:hover {
+  /* ↓ COPIO AS DUAS PROPRIEDADES QUE IRÃO MUDAR E APLICO AS MUDANÇAS NECESSÁRIAS */
+  background: var(--surface-color-hover);
+  border: 1.5px solid var(--text-color);
+}
+
+/* SOCIAL LINKS */
+#social-links {
+  display: flex;
+  justify-content: center;
+
+  padding: 24px 0;
+
+  font-size: 24px;
+}
+
+#social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+
+  transition: background 0.2s;
+  border-radius: 50%;
+}
+
+#social-links a:hover {
+  background: var(--highlight-color);
+  padding: 16px;
+}
+
+/* FOOTER */
+footer {
+  padding: 24px;
+  text-align: center; /* ← COMO O PADRÃO É BLOCK, USAMOS text-align: center; PARA CENTRALIZAR O TEXTO DENTRO DA CAIXA! */
+  font-size: 14px;
+}
