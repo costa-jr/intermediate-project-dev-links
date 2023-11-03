@@ -89,14 +89,22 @@ body {
 
   position: absolute;
   top: 50%;
-  left: 0;
+  left: 0%;
   z-index: 1;
   transform: translateY(-50%);
+
+  animation: slide-back 0.2s;
+  /* COMO O forwards MANTÉM A PROPRIEDADE FINAL DO ELEMENTO, E COMO A PROPRIEDADE FINAL DA ANIMAÇÃO JÁ É left NÃO HA NECESSIDADE DO forwards OU DE UMA fill-mode */
+}
+
+#switch button:hover {
+  cursor: pointer;
+  outline: 8px solid var(--highlight-color);
 }
 
 .light #switch button {
-  right: 0;
-  left: initial;
+  animation: slide-in 0.2s forwards;
+  /* forwards (FILL MODE PROPERTY) ESPECIFICA QUE ANIMAÇÃO CONTINUE APLICADA DEPOIS DA EXECUÇÃO */
 }
 
 #switch span {
@@ -114,7 +122,8 @@ body {
 ul {
   list-style: none;
 
-  display: flex; /* ← PADRÃO É ROW COLOCANDO OS ELEMENTOS UM AO LADO DO OUTRO
+  display: flex;
+  /* ↑ PADRÃO É ROW COLOCANDO OS ELEMENTOS UM AO LADO DO OUTRO
   POR ESSE MOTIVO, DECLARO UM flex-direction: column; PARA POR OS ELEMENTOS UM ACIMA DO OUTRO COMO UMA COLUNA */
   flex-direction: column;
   gap: 16px;
@@ -191,5 +200,24 @@ footer {
 
   .light {
     --bg-url: url(./assets/bg-desktop-light.jpg);
+  }
+}
+
+/* ANIMAÇÕES */
+@keyframes slide-in {
+  from {
+    left: 0;
+  }
+  to {
+    left: 50%; /* EMPURRA O OBJETO PARA A ESQUERDA 50% NA CAIXA */
+  }
+}
+
+@keyframes slide-back {
+  from {
+    left: 50%;
+  }
+  to {
+    left: 0%;
   }
 }
