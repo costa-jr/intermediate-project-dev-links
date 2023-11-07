@@ -35,7 +35,7 @@ This project was built using the following technologies:
 
 <strong>Social Links</strong> is a link aggregator to use as an online business card.
 
-- [Access the finished project online.](https://dinhocosta.github.io/projeto)
+- [Access the finished project online.](https://dinhocosta.github.io/social-links)
 
 <!-- - [Assistir aulas](https://lp.rocketseat.com.br/devlinks/inscricao?utm_source=github&utm_medium=descricao&utm_campaign=capture-devlinks&utm_term=organic&utm_content=descricao-github-mayk-brito) -->
 
